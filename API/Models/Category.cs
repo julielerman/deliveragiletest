@@ -1,7 +1,7 @@
 using System;
 namespace AgilistaTracker {
-  public class AgileCategory {
-    public AgileCategory (string description) {
+  public class Category {
+    public Category (string description) {
       Id = Guid.NewGuid ();
       Description = description;
     }
