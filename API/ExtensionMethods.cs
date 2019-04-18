@@ -17,6 +17,7 @@ namespace Agilistas
                 try
                 {
                     var db = services.GetRequiredService<T>();
+        
                     db.Database.Migrate();
                 }
                 catch (Exception ex)

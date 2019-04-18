@@ -1,25 +1,26 @@
 version: '3.4'
 
 services:
-  dataapidocker:
+  agilistaapi:
     image: ${DOCKER_REGISTRY-}api
     build:
       context: .
       dockerfile: API/Dockerfile
     environment:
-      - DB_Conn
+      - ConnectionStrings:DB_Conn
     ports:
-      - 80:80
+      - 81:80
     depends_on:
       - db
   db:
     image: mcr.microsoft.com/mssql/server
-    volumes:
-      - mssql-server-agilista-data:/var/opt/mssql/data
+    #volumes:
+    ##  - mssql-server-agilista-data:/var/opt/mssql/data
     environment:
       SA_PASSWORD: "P@ssword1"
       ACCEPT_EULA: "Y"
+      MSSQL_AGENT_ENABLED: "true"
     ports:
-      - "1433:1433"
-volumes:
-  mssql-server-agilista-data: {}
+      - "1600:1433"
+#volumes:
+  #mssql-server-agilista-data: {}
