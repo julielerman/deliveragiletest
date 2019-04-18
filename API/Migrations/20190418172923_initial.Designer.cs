@@ -9,7 +9,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Agilistas.Migrations
 {
     [DbContext(typeof(AgilistaContext))]
-    [Migration("20190416012400_initial")]
+    [Migration("20190418172923_initial")]
     partial class initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -27,7 +27,7 @@ namespace Agilistas.Migrations
 
                     b.Property<string>("Name");
 
-                    b.Property<Guid?>("PrimaryFocusId");
+                    b.Property<Guid>("PrimaryFocusId");
 
                     b.Property<string>("TwitterHandle");
 
@@ -54,7 +54,8 @@ namespace Agilistas.Migrations
                 {
                     b.HasOne("AgilistaTracker.Category", "PrimaryFocus")
                         .WithMany()
-                        .HasForeignKey("PrimaryFocusId");
+                        .HasForeignKey("PrimaryFocusId")
+                        .OnDelete(DeleteBehavior.Cascade);
                 });
 #pragma warning restore 612, 618
         }

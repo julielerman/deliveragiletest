@@ -7,17 +7,6 @@ namespace Agilistas.Migrations
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
-            migrationBuilder.DropForeignKey(
-                name: "FK_Agilistas_Categories_PrimaryFocusId",
-                table: "Agilistas");
-
-            migrationBuilder.AlterColumn<Guid>(
-                name: "PrimaryFocusId",
-                table: "Agilistas",
-                nullable: false,
-                oldClrType: typeof(Guid),
-                oldNullable: true);
-
             migrationBuilder.InsertData(
                 table: "Categories",
                 columns: new[] { "Id", "Description" },
@@ -43,22 +32,10 @@ namespace Agilistas.Migrations
                     { new Guid("f2e5fdba-daf9-43f0-8bde-9ed2562bd12a"), "Maaret Pyhäjärvi", new Guid("5f6d6f80-9f9a-469e-9036-07ecbb3971ea"), null },
                     { new Guid("83eda86f-c652-4666-ba17-db90b218a54b"), "Linda Rising", new Guid("c5b6a0e8-e43f-4765-906f-e15e019a19d8"), null }
                 });
-
-            migrationBuilder.AddForeignKey(
-                name: "FK_Agilistas_Categories_PrimaryFocusId",
-                table: "Agilistas",
-                column: "PrimaryFocusId",
-                principalTable: "Categories",
-                principalColumn: "Id",
-                onDelete: ReferentialAction.Cascade);
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
         {
-            migrationBuilder.DropForeignKey(
-                name: "FK_Agilistas_Categories_PrimaryFocusId",
-                table: "Agilistas");
-
             migrationBuilder.DeleteData(
                 table: "Agilistas",
                 keyColumn: "Id",
@@ -93,20 +70,6 @@ namespace Agilistas.Migrations
                 table: "Categories",
                 keyColumn: "Id",
                 keyValue: new Guid("c5b6a0e8-e43f-4765-906f-e15e019a19d8"));
-
-            migrationBuilder.AlterColumn<Guid>(
-                name: "PrimaryFocusId",
-                table: "Agilistas",
-                nullable: true,
-                oldClrType: typeof(Guid));
-
-            migrationBuilder.AddForeignKey(
-                name: "FK_Agilistas_Categories_PrimaryFocusId",
-                table: "Agilistas",
-                column: "PrimaryFocusId",
-                principalTable: "Categories",
-                principalColumn: "Id",
-                onDelete: ReferentialAction.Restrict);
         }
     }
 }

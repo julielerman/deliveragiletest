@@ -25,7 +25,7 @@ namespace Agilistas.Migrations
                 {
                     Id = table.Column<Guid>(nullable: false),
                     Name = table.Column<string>(nullable: true),
-                    PrimaryFocusId = table.Column<Guid>(nullable: true),
+                    PrimaryFocusId = table.Column<Guid>(nullable: false),
                     TwitterHandle = table.Column<string>(nullable: true)
                 },
                 constraints: table =>
@@ -36,7 +36,7 @@ namespace Agilistas.Migrations
                         column: x => x.PrimaryFocusId,
                         principalTable: "Categories",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateIndex(

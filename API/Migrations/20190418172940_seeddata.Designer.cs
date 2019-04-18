@@ -9,7 +9,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Agilistas.Migrations
 {
     [DbContext(typeof(AgilistaContext))]
-    [Migration("20190417020621_seeddata")]
+    [Migration("20190418172940_seeddata")]
     partial class seeddata
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
