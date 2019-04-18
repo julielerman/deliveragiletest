@@ -14,7 +14,7 @@ namespace Agilistas
     {
         public static void Main(string[] args)
         {
-          CreateWebHostBuilder(args).Build().MigrateDatabase<AgilistaContext>().Run();
+          CreateWebHostBuilder(args).Build().Run();
         }
 
         public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>

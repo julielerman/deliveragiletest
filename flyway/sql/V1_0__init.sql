@@ -1,4 +1,5 @@
-﻿WAITFOR DELAY '00:00:03'
+﻿
+WAITFOR DELAY '00:00:03'
 
 CREATE LOGIN AppLogin WITH PASSWORD = 'yourStrongPassw0rd!'
 GO
@@ -44,8 +45,4 @@ CREATE INDEX [IX_Agilistas_PrimaryFocusId] ON [Agilistas] ([PrimaryFocusId]);
 
 GO
 
-INSERT INTO [__EFMigrationsHistory] ([MigrationId], [ProductVersion])
-VALUES (N'20190418172923_initial', N'2.2.3-servicing-35854');
-
-GO
 
