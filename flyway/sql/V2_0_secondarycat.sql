@@ -1,9 +1,4 @@
 ﻿
-GO
-SET IDENTITY_INSERT [Categories] ON;
-INSERT INTO [Categories] ([Id], [Description])
-VALUES ('a372269c-0e3d-45f6-bda1-6631667e8e37', N'Agile Data');
-SET IDENTITY_INSERT [Categories] OFF;
 
 ALTER TABLE [Agilistas] ADD [SecondaryFocusId] uniqueidentifier NOT NULL DEFAULT '00000000-0000-0000-0000-000000000000';
 
@@ -35,12 +30,6 @@ WHERE [Id] = 'f2e5fdba-daf9-43f0-8bde-9ed2562bd12a';
 SELECT @@ROWCOUNT;
 
 
-
-
-
-    SET IDENTITY_INSERT [Agilistas] ON;
-INSERT INTO [Agilistas] ([Id], [Name], [PrimaryFocusId], [SecondaryFocusId], [TwitterHandle])
-VALUES ('cb2a97da-1700-4f2b-a419-c539279e0d1f', N'Julie Lerman', 'a372269c-0e3d-45f6-bda1-6631667e8e37', '00000000-0000-0000-0000-000000000000', NULL);
 
 
 CREATE INDEX [IX_Agilistas_SecondaryFocusId] ON [Agilistas] ([SecondaryFocusId]);
