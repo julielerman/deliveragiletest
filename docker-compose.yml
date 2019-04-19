@@ -18,7 +18,7 @@ services:
       SA_PASSWORD: "P@ssword1"
       ACCEPT_EULA: "Y"
     ports:
-      - "1600:1433"
+      - "1620:1433"
   migration:
     image: boxfuse/flyway:latest
     container_name: flyway_migration_julie

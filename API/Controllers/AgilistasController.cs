@@ -26,7 +26,7 @@ namespace Agilistas.Controllers
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Agilista>>> GetAgilista()
         {
-            return await _context.Agilistas.Include(a=>a.PrimaryFocus).ToListAsync();
+            return await _context.Agilistas.Include(a=>a.PrimaryFocus).Include(a=>a.SecondaryFocus).ToListAsync();
     
     }
       //  [HttpGet]
