@@ -36,8 +36,4 @@ CREATE INDEX [IX_Agilistas_SecondaryFocusId] ON [Agilistas] ([SecondaryFocusId])
 
 GO
 
-ALTER TABLE [Agilistas] ADD CONSTRAINT [FK_Agilistas_Categories_SecondaryFocusId] FOREIGN KEY ([SecondaryFocusId]) REFERENCES [Categories] ([Id]) ON DELETE CASCADE;
-
-GO
-
 
