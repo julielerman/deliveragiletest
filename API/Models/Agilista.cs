@@ -18,7 +18,8 @@ namespace AgilistaTracker {
     public string Name { get; set; }
     public Category PrimaryFocus { get; set; }
     public Guid PrimaryFocusId{get;set;}
-    //public Category SecondaryFocus { get; set; }
+    public Category SecondaryFocus { get; set; }
+    public Guid SecondaryFocusId { get; set; }
     public string TwitterHandle { get; set; }
   }
 }
