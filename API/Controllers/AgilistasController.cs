@@ -19,7 +19,7 @@ namespace Agilistas.Controllers
         public AgilistasController(AgilistaContext context)
         {
             _context = context;
-            _context.Database.Migrate();
+            
         }
 
         // GET: api/Agilistas
