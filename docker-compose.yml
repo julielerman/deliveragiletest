@@ -17,7 +17,6 @@ services:
     environment:
       SA_PASSWORD: "P@ssword1"
       ACCEPT_EULA: "Y"
-      MSSQL_AGENT_ENABLED: "true"
     ports:
       - "1600:1433"
   migration:

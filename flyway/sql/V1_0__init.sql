@@ -1,7 +1,7 @@
 ﻿
 WAITFOR DELAY '00:00:03'
 
-CREATE LOGIN AppLogin WITH PASSWORD = 'yourStrongPassw0rd!'
+CREATE LOGIN AppLogin WITH PASSWORD = 'P@ssword1'
 GO
 
 DROP USER IF EXISTS AppUser
