@@ -1,8 +1,8 @@
 version: '3'
 services:
-  unittests:
+  dbtests:
     build: 
-        dockerfile: Dockerfile-test 
+        dockerfile: Dockerfile-dbtest 
         context: .
   db:
     image: mcr.microsoft.com/mssql/server

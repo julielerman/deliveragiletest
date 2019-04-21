@@ -26,14 +26,23 @@ namespace Agilistas.Controllers
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Agilista>>> GetAgilista()
         {
-            return await _context.Agilistas.Include(a=>a.PrimaryFocus).Include(a=>a.SecondaryFocus).ToListAsync();
-    
+            //var results= await _context.Agilistas.Include(a=>a.PrimaryFocus).Include(a=>a.SecondaryFocus).ToListAsync();
+            try
+            {
+                _context.Database.EnsureCreated();
+                 var results=await _context.Agilistas.ToListAsync();
+              return results;      }
+            catch (System.Exception ex)
+            {
+                
+                throw;
+            } 
     }
-      //  [HttpGet]
-      //   public ActionResult<IEnumerable<string>> Get()
-      //   {
-      //       return new string[] { "agilista", "it works" };
-      //   }
+    //    [HttpGet]
+    //     public ActionResult<IEnumerable<string>> Get()
+    //     {
+    //         return new string[] { "agilista", "it works" };
+    //     }
 
         // GET: api/Agilistas/5
         [HttpGet("{id}")]
