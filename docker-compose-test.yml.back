@@ -7,11 +7,17 @@ services:
       context: .
     environment:
       - ConnectionStrings:DB_Conn
-    #entrypoint: ["bash","ModelTests/entrypoint-tests.sh", "--timeout=30"]
-    #command: ModelTests/entrypoint-tests.sh
+    #command: [. /entrypoint-tests.sh]
+    #entrypoint: dotnet test /ModelTests/ModelTests.csproj
+    entrypoint: ["bash", "/flyway/bin/wait-for-it.sh", "--timeout=30", "db:1433", "--", "dotnet test /ModelTests/ModelTests/csproj"]      
     depends_on:
       - migration
       - db
+  #entrypoint: ["bash","/ModelTests/entrypoint-tests.sh", "--timeout=30"]
+    #command: dotnet test ModelTests/ModelTests.csproj      
+    #command: ["/wait-for-it.sh", "mysql:3306", "--", [entrypoint function]]
+ #entrypoint:  ModelTests/entrypoint-tests.sh
+     
   db:
     image: mcr.microsoft.com/mssql/server
     environment:

@@ -29,8 +29,7 @@ namespace Agilistas.Controllers
             //var results= await _context.Agilistas.Include(a=>a.PrimaryFocus).Include(a=>a.SecondaryFocus).ToListAsync();
             try
             {
-                _context.Database.EnsureCreated();
-                 var results=await _context.Agilistas.ToListAsync();
+                  var results=await _context.Agilistas.ToListAsync();
               return results;      }
             catch (System.Exception ex)
             {

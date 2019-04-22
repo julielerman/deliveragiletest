@@ -6,11 +6,14 @@ WORKDIR /src
 # restore
 COPY ["./API/Agilistas.csproj", "API/"]
 RUN dotnet restore API/Agilistas.csproj
-COPY ModelTests/ModelTests.csproj ./ModelTests/
+COPY ./ModelTests/ModelTests.csproj ./ModelTests/
 RUN dotnet restore ModelTests/ModelTests.csproj
 
 # copy src
 COPY . .
+RUN chmod +x ModelTests/wait-for-it.sh
+RUN chmod +x ModelTests/entrypoint-tests.sh
+RUN /bin/bash ModelTests/entrypoint-tests.sh
 
 # test
-RUN dotnet test ModelTests/ModelTests.csproj
+#RUN dotnet test ModelTests/ModelTests.csproj

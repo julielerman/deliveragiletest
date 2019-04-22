@@ -16,7 +16,7 @@ public class CustomWebApplicationFactory<TStartup>
                 .AddEntityFrameworkSqlServer()
                 .BuildServiceProvider();
 
-                      var dbconn="Server=localhost:1600;Database=DB_Agilistas;Trusted_Connection=False;User=sa;Password=P@ssword1";
+                      var dbconn="Server=localhost,1620;Database=DB_Agilistas;Trusted_Connection=False;User=sa;Password=P@ssword1";
  
               
             services.AddDbContext<AgilistaContext>(options=>
