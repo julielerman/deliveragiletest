@@ -1,0 +1,19 @@
+--previous branch success ...make sure this works here first--
+make sure db exists ...can be done by running docker-compose.yml (api version)
+Run Tests from code lens
+Connection string comes from appsettings.development.json file in API
+and that points to localhost,1620
+
+
+-------------------------below is really for next branch------
+ensure that when running compose up from docker test that the dbconnection server is db, not localhost
+Mistakes:
+  I didn't include the 
+  environment:
+      - ConnectionStrings:DB_Conn
+
+  setting in the docker-compose-test.yml for the test service 
+  so it was using the conneciton string from appsettings.development.json which was localhost
+
+I keep having to remove target from flyway service in compose
+other mistakes: depends on missing on unittest service

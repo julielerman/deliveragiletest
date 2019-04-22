@@ -1,4 +1,7 @@
-﻿ALTER TABLE [Agilistas] ADD [SecondaryFocusId] uniqueidentifier NOT NULL DEFAULT '00000000-0000-0000-0000-000000000000';
+﻿USE DB_Agilistas
+GO
+
+ALTER TABLE [Agilistas] ADD [SecondaryFocusId] uniqueidentifier NOT NULL DEFAULT '00000000-0000-0000-0000-000000000000';
 
 GO
 
