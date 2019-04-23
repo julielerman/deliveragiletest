@@ -28,7 +28,7 @@ namespace Agilistas
         {
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
             var conn = Configuration["ConnectionStrings:DB_Conn"];
-            // conn="DB_Conn=Server=db;Database=DB_Agilistas;Trusted_Connection=False;User=sa;Password=P@ssword1";
+            // conn="Server=db;Database=DB_Agilistas;Trusted_Connection=False;User=sa;Password=P@ssword1";
             services.AddDbContext<AgilistaContext>(options=> options.UseSqlServer(conn));
         }
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

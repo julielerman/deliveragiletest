@@ -3,7 +3,22 @@ make sure db exists ...can be done by running docker-compose.yml (api version)
 Run Tests from code lens
 Connection string comes from appsettings.development.json file in API
 and that points to localhost,1620
-
+----------
+make sure regular docker compose runs correctly
+browse to api/values and api/agilistas
+had to fix SQL of final flyway sql becuase it was missing USE DB_Agilistas at top
+------now with test compose-----
+it's not finding the env var from .env file
+using appsettings.dev.json from API project
+even when that's set to server=db, it's not able to connect to db (db exists)
+why? boo hoo...this is a many many hour time sucker problem
+test compose was only v3 where api compose was 3.4 so I fixed that but still fails
+could differnet db container names be the problem? No that was the flyway container name so it doesn't matter
+-what about the connection string in webappfactory file? No
+-what about running modeltests from dockerfile, not from entrypoint.sh?  No
+???why can the API container connect but the test container can't?
+tried using ip address exposed by sql container: Server=192.168.112.2:1620;
+****If I don't run the tests, the database gets created****
 
 -------------------------below is really for next branch------
 ensure that when running compose up from docker test that the dbconnection server is db, not localhost

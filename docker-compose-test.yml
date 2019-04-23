@@ -1,4 +1,4 @@
-version: '3'
+version: '3.4'
 
 services:
   unittests:
@@ -11,7 +11,6 @@ services:
     #command: ModelTests/entrypoint-tests.sh
     depends_on:
       - migration
-      - db
   db:
     image: mcr.microsoft.com/mssql/server
     environment:
@@ -21,7 +20,7 @@ services:
       - "1620:1433"
   migration:
     image: boxfuse/flyway:latest
-    container_name: flyway_migration_tests
+    container_name: flyway_migration_julie
     volumes:
     - ./flyway/sql:/flyway/sql
     - ./flyway/bin:/flyway/bin

@@ -7,115 +7,94 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
-
-namespace Agilistas.Controllers
-{
-    [Route("api/[controller]")]
+namespace Agilistas.Controllers {
+    [Route ("api/[controller]")]
     [ApiController]
-    public class AgilistasController : ControllerBase
-    {
+    public class AgilistasController : ControllerBase {
         private readonly AgilistaContext _context;
 
-        public AgilistasController(AgilistaContext context)
-        {
+        public AgilistasController (AgilistaContext context) {
             _context = context;
-            
+
         }
 
         // GET: api/Agilistas
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<Agilista>>> GetAgilista()
-        {
+        public async Task<ActionResult<IEnumerable<Agilista>>> GetAgilista () {
             //var results= await _context.Agilistas.Include(a=>a.PrimaryFocus).Include(a=>a.SecondaryFocus).ToListAsync();
-            try
-            {
-                  var results=await _context.Agilistas.ToListAsync();
-              return results;      }
-            catch (System.Exception ex)
-            {
-                
-                throw;
-            } 
-    }
-    //    [HttpGet]
-    //     public ActionResult<IEnumerable<string>> Get()
-    //     {
-    //         return new string[] { "agilista", "it works" };
-    //     }
+            try {
+                var results = await _context.Agilistas.ToListAsync ();
+                return results;
+            } catch (System.Exception ex) {
+                var conn = _context.Database.GetDbConnection ().ConnectionString;
+                throw new Exception ("the failed db connstring is: " + conn);
+            }
+        }
+        //    [HttpGet]
+        //     public ActionResult<IEnumerable<string>> Get()
+        //     {
+        //         return new string[] { "agilista", "it works" };
+        //     }
 
         // GET: api/Agilistas/5
-        [HttpGet("{id}")]
-        public async Task<ActionResult<Agilista>> GetAgilista(Guid id)
-        {
-            var Agilista = await _context.Agilistas.Include(a=>a.PrimaryFocus).FirstOrDefaultAsync(a=>a.Id==id);
+        [HttpGet ("{id}")]
+        public async Task<ActionResult<Agilista>> GetAgilista (Guid id) {
+            var Agilista = await _context.Agilistas.Include (a => a.PrimaryFocus).FirstOrDefaultAsync (a => a.Id == id);
 
-            if (Agilista == null)
-            {
-                return NotFound();
+            if (Agilista == null) {
+                return NotFound ();
             }
 
             return Agilista;
         }
 
         // PUT: api/Agilistas/5
-        [HttpPut("{id}")]
-        public async Task<IActionResult> PutAgilista(Guid id, Agilista Agilista)
-        {
-            if (id != Agilista.Id)
-            {
-                return BadRequest();
+        [HttpPut ("{id}")]
+        public async Task<IActionResult> PutAgilista (Guid id, Agilista Agilista) {
+            if (id != Agilista.Id) {
+                return BadRequest ();
             }
 
-            _context.Entry(Agilista).State = EntityState.Modified;
+            _context.Entry (Agilista).State = EntityState.Modified;
 
-            try
-            {
-                await _context.SaveChangesAsync();
-            }
-            catch (DbUpdateConcurrencyException)
-            {
-                if (!AgilistaExists(id))
-                {
-                    return NotFound();
-                }
-                else
-                {
+            try {
+                await _context.SaveChangesAsync ();
+            } catch (DbUpdateConcurrencyException) {
+                if (!AgilistaExists (id)) {
+                    return NotFound ();
+                } else {
                     throw;
                 }
             }
 
-            return NoContent();
+            return NoContent ();
         }
 
         // POST: api/Agilistas
         [HttpPost]
-        public async Task<ActionResult<Agilista>> PostAgilista(Agilista Agilista)
-        {
-            _context.Agilistas.Add(Agilista);
-            await _context.SaveChangesAsync();
+        public async Task<ActionResult<Agilista>> PostAgilista (Agilista Agilista) {
+            _context.Agilistas.Add (Agilista);
+            await _context.SaveChangesAsync ();
 
-            return CreatedAtAction("GetAgilista", new { id = Agilista.Id }, Agilista);
+            return CreatedAtAction ("GetAgilista", new { id = Agilista.Id }, Agilista);
         }
 
         // DELETE: api/Agilistas/5
-        [HttpDelete("{id}")]
-        public async Task<ActionResult<Agilista>> DeleteAgilista(int id)
-        {
-            var Agilista = await _context.Agilistas.FindAsync(id);
-            if (Agilista == null)
-            {
-                return NotFound();
+        [HttpDelete ("{id}")]
+        public async Task<ActionResult<Agilista>> DeleteAgilista (int id) {
+            var Agilista = await _context.Agilistas.FindAsync (id);
+            if (Agilista == null) {
+                return NotFound ();
             }
 
-            _context.Agilistas.Remove(Agilista);
-            await _context.SaveChangesAsync();
+            _context.Agilistas.Remove (Agilista);
+            await _context.SaveChangesAsync ();
 
             return Agilista;
         }
 
-        private bool AgilistaExists(Guid id)
-        {
-            return _context.Agilistas.Any(e => e.Id == id);
+        private bool AgilistaExists (Guid id) {
+            return _context.Agilistas.Any (e => e.Id == id);
         }
     }
 }
