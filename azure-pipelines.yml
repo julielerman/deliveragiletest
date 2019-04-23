@@ -4,14 +4,13 @@
 # https://docs.microsoft.com/azure/devops/pipelines/languages/dotnet-core
 
 trigger:
-- master
+- 7-integrationtestsintoimage
 
 pool:
   vmImage: 'Ubuntu-16.04'
 
 variables:
   buildConfiguration: 'Release'
-  branchToBuild: '7-integrationtestsintoimage'
 
 steps:
 - script: dotnet build --configuration $(buildConfiguration)
