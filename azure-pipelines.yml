@@ -11,7 +11,7 @@ pool:
 
 variables:
   buildConfiguration: 'Release'
-  branchToBuild:7-integrationtestsintoimage
+  branchToBuild: '7-integrationtestsintoimage'
 
 steps:
 - script: dotnet build --configuration $(buildConfiguration)
