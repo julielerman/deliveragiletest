@@ -52,7 +52,6 @@ namespace ModelTests {
         }
 
         [Theory]
-        //[InlineData("/api/values")]
         [InlineData ("/api/agilistas")]
         public async Task AgilistasControllerDefaultReturnsExpectedResults (string url) {
             // Arrange

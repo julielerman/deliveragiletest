@@ -13,7 +13,3 @@ RUN dotnet restore ModelTests/ModelTests.csproj
 COPY . .
 RUN chmod +x ModelTests/wait-for-it.sh
 RUN chmod +x ModelTests/entrypoint-tests.sh
-#RUN /bin/bash ModelTests/entrypoint-tests.sh <--have alternated between this an the RUN on line 19. Either way, these happen before db is available even if I put in long pauses
-
-# test
-RUN dotnet test ModelTests/ModelTests.csproj

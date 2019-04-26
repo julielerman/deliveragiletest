@@ -7,8 +7,7 @@ services:
       context: .
     environment:
       - ConnectionStrings:DB_Conn
-    #entrypoint: ["bash","ModelTests/entrypoint-tests.sh", "--timeout=30"] <--never works
-    #command: ModelTests/entrypoint-tests.sh <--never works
+    entrypoint: ["bash","ModelTests/entrypoint-tests.sh", "--timeout=30"] 
     depends_on:
       - migration
   db:

@@ -2,9 +2,6 @@ FROM microsoft/dotnet:2.2-aspnetcore-runtime AS base
 WORKDIR /app
 EXPOSE 80
 
-#ENV ConnectionStrings:DB_Conn=""
-#"Server=db;Database=DB_AgilistasNoController;Trusted_Connection=False;User=sa;Password=P@ssword1;"
-
 FROM microsoft/dotnet:2.2-sdk AS build
 WORKDIR /src
 COPY ["API/Agilistas.csproj", "API/"]
