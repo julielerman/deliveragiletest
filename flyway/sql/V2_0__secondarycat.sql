@@ -1,8 +1,7 @@
 ﻿USE DB_Agilistas
 GO
 
-ALTER TABLE [Agilistas] ADD [SecondaryFocusId] uniqueidentifier NOT NULL DEFAULT '00000000-0000-0000-0000-000000000000';
-
+ALTER TABLE [Agilistas] ADD [SecondaryFocusId] uniqueidentifier NULL;
 GO
 
 UPDATE [Agilistas] SET [SecondaryFocusId] = '5f6d6f80-9f9a-469e-9036-07ecbb3971ea'
@@ -38,3 +37,4 @@ CREATE INDEX [IX_Agilistas_SecondaryFocusId] ON [Agilistas] ([SecondaryFocusId])
 GO
 
 
+ALTER TABLE [Agilistas] ADD CONSTRAINT [FK_Agilistas_Categories_SecondaryFocusId] FOREIGN KEY ([SecondaryFocusId]) REFERENCES [Categories] ([Id]) ON DELETE NO ACTION;

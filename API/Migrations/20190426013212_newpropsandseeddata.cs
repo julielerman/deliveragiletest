@@ -10,8 +10,7 @@ namespace Agilistas.Migrations
             migrationBuilder.AddColumn<Guid>(
                 name: "SecondaryFocusId",
                 table: "Agilistas",
-                nullable: false,
-                defaultValue: new Guid("00000000-0000-0000-0000-000000000000"));
+                nullable: true);
 
             migrationBuilder.UpdateData(
                 table: "Agilistas",
@@ -62,7 +61,7 @@ namespace Agilistas.Migrations
                 column: "SecondaryFocusId",
                 principalTable: "Categories",
                 principalColumn: "Id",
-                onDelete: ReferentialAction.Cascade);
+                onDelete: ReferentialAction.Restrict);
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)

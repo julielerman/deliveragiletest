@@ -27,7 +27,7 @@ namespace Agilistas.Migrations
 
                     b.Property<Guid>("PrimaryFocusId");
 
-                    b.Property<Guid>("SecondaryFocusId");
+                    b.Property<Guid?>("SecondaryFocusId");
 
                     b.Property<string>("TwitterHandle");
 
@@ -120,8 +120,7 @@ namespace Agilistas.Migrations
 
                     b.HasOne("AgilistaTracker.Category", "SecondaryFocus")
                         .WithMany()
-                        .HasForeignKey("SecondaryFocusId")
-                        .OnDelete(DeleteBehavior.Cascade);
+                        .HasForeignKey("SecondaryFocusId");
                 });
 #pragma warning restore 612, 618
         }

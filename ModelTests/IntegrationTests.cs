@@ -21,7 +21,6 @@ namespace ModelTests {
 
         [Theory]
         [InlineData ("/api/values")]
-        // [InlineData("/api/agilistas")]
         public async Task ValuesControllerDefaultReturnsJson (string url) {
             // Arrange
             var client = _factory.CreateClient ();
@@ -37,7 +36,6 @@ namespace ModelTests {
 
         [Theory]
         [InlineData ("/api/values")]
-        // [InlineData("/api/agilistas")]
         public async Task ValuesControllerDefaultReturnsExpectedResults (string url) {
             // Arrange
             var client = _factory.CreateClient ();
