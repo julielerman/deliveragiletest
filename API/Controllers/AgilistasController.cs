@@ -25,7 +25,7 @@ namespace Agilistas.Controllers {
              try {
                 var results = await _context.Agilistas.Include(a=>a.PrimaryFocus).ToListAsync ();
                 return results;
-            } catch (System.Exception ex) {
+            } catch {
                 var conn = _context.Database.GetDbConnection ().ConnectionString;
                 throw new Exception ("the failed db connstring is: " + conn);
             }
