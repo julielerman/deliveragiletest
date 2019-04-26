@@ -76,8 +76,10 @@ namespace ModelTests {
 
             // Assert
             response.EnsureSuccessStatusCode (); // Status Code 200-299
-            var result = JsonConvert.DeserializeObject<List<Agilista>> (response.Content.ReadAsStringAsync ().Result);
-            Assert.NotEmpty (result.Where (a => a.SecondaryFocus != null && a.SecondaryFocus.Description == "Exploratory Testing"));
+            var result = JsonConvert.DeserializeObject<List<Agilista>> 
+              (response.Content.ReadAsStringAsync ().Result);
+            Assert.NotEmpty (result.Where (a => a.SecondaryFocus != null 
+              && a.SecondaryFocus.Description == "Exploratory Testing"));
         }
     }
 }
