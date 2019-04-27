@@ -43,10 +43,3 @@ steps:
     dockerComposeFile: docker-compose-test.yml
     action: Run a Docker Compose command
     dockerComposeCommand: up unittests
-  
-- script: |
-    #docker build ./flyway -t $(dockerId)/$(imageName)
-    #docker login -u $(dockerId) -p $(dockerPassword)
-    #docker push $(dockerId)/ignite-apply-sql-updates-job
-  #workingDirectory: '$(modulePath)'
-  #displayName: 'Build, Login, Push SQL Kuberentes Job'
