@@ -49,4 +49,4 @@ steps:
     #docker login -u $(dockerId) -p $(dockerPassword)
     #docker push $(dockerId)/ignite-apply-sql-updates-job
   #workingDirectory: '$(modulePath)'
-  displayName: 'Build, Login, Push SQL Kuberentes Job'
+  #displayName: 'Build, Login, Push SQL Kuberentes Job'
