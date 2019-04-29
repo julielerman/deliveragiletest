@@ -13,6 +13,7 @@ variables:
   buildConfiguration: 'Release'
 
 steps:
+
   
 # Docker Compose
 # Build, push or run multi-container Docker applications. Task can be used with Docker or Azure Container registry.
