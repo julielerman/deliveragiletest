@@ -26,7 +26,7 @@ namespace Agilistas {
             services.AddMvc ().SetCompatibilityVersion (CompatibilityVersion.Version_2_2)
                 .AddJsonOptions (options => {
                     options.SerializerSettings.ReferenceLoopHandling = ReferenceLoopHandling.Ignore;
-                });;
+                });
             var conn = Configuration["ConnectionStrings:DB_Conn"];
             // conn="Server=db;Database=DB_Agilistas;Trusted_Connection=False;User=sa;Password=P@ssword1";
             services.AddDbContext<AgilistaContext> (options => options.UseSqlServer (conn));
