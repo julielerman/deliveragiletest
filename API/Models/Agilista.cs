@@ -11,10 +11,7 @@ namespace AgilistaTracker {
     public Agilista (string name, Category primaryFocus, string twitterhandle) : this (name, primaryFocus) {
       TwitterHandle = twitterhandle;
     }
-    private Agilista()
-    {
-        
-    }
+    private Agilista(){ }
     public Guid Id { get; private set; }
     public string Name { get; set; }
     public Category PrimaryFocus { get; set; }
